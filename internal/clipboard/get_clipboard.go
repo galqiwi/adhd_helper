@@ -5,8 +5,12 @@ import (
 	"strings"
 )
 
-func GetClipboard() (string, error) {
-	cmd := exec.Command("xclip", "-selection", "clipboard", "-o", "/dev/stdout")
+func GetClipboard(useSelection bool) (string, error) {
+	selection := "clipboard"
+	if useSelection {
+		selection = "primary"
+	}
+	cmd := exec.Command("xclip", "-selection", selection, "-o", "/dev/stdout")
 	stdoutBuf := strings.Builder{}
 	cmd.Stdout = &stdoutBuf
 	err := cmd.Run()

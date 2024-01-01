@@ -19,7 +19,7 @@ func Main(cfg *Config) error {
 
 	outFile := filepath.Join(dirname, "output.mp3")
 
-	text, err := clipboard.GetClipboard()
+	text, err := clipboard.GetClipboard(cfg.UseSelection)
 	if err != nil {
 		return err
 	}

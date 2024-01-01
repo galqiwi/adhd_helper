@@ -15,8 +15,5 @@ func main() {
 }
 
 func Main() error {
-	return adhd_helper.Main(&adhd_helper.Config{
-		OutputPath: "",
-		Play:       true,
-	})
+	return adhd_helper.Main(getConf())
 }
