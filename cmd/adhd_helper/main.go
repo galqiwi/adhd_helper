@@ -1,7 +1,8 @@
-package adhd_helper
+package main
 
 import (
 	"fmt"
+	"github.com/galqiwi/adhd_helper/internal/adhd_helper"
 	"os"
 )
 
@@ -14,5 +15,8 @@ func main() {
 }
 
 func Main() error {
-	return nil
+	return adhd_helper.Main(&adhd_helper.Config{
+		OutputPath: "",
+		Play:       true,
+	})
 }
